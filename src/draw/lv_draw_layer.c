@@ -75,8 +75,6 @@ void lv_draw_layer_blend(struct _lv_draw_ctx_t * draw_ctx, struct _lv_draw_layer
 
 void lv_draw_layer_destroy(lv_draw_ctx_t * draw_ctx, lv_draw_layer_ctx_t * layer_ctx)
 {
-
-    lv_draw_wait_for_finish(draw_ctx);
     draw_ctx->buf = layer_ctx->original.buf;
     draw_ctx->buf_area = layer_ctx->original.buf_area;
     draw_ctx->clip_area = layer_ctx->original.clip_area;

@@ -73,9 +73,10 @@ void lv_draw_sw_deinit_ctx(lv_disp_drv_t * drv, lv_draw_ctx_t * draw_ctx)
     lv_memzero(draw_sw_ctx, sizeof(lv_draw_sw_ctx_t));
 }
 
-void lv_draw_sw_wait_for_finish(lv_draw_ctx_t * draw_ctx)
+void lv_draw_sw_wait_for_finish(lv_draw_ctx_t * draw_ctx, const lv_area_t * area)
 {
     LV_UNUSED(draw_ctx);
+    LV_UNUSED(area);
     /*Nothing to wait for*/
 }
 

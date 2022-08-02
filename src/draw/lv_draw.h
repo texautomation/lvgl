@@ -131,8 +131,12 @@ typedef struct _lv_draw_ctx_t  {
 
     /**
      * Wait until all background operations are finished. (E.g. GPU operations)
+     * @param draw_ctx      pointer to a draw context
+     * @param area          pointer to an area which will be refreshed. Can be NULL to finish all operations.
+     * @note                If the CPU/GPU is not busy with `area` it can return immediately
+     *                      as the areas won't conflict.
      */
-    void (*wait_for_finish)(struct _lv_draw_ctx_t * draw_ctx);
+    void (*wait_for_finish)(struct _lv_draw_ctx_t * draw_ctx, const lv_area_t * area);
 
     /**
      * Copy an area from buffer to an other
@@ -214,7 +218,14 @@ typedef struct _lv_draw_ctx_t  {
 void lv_draw_init(void);
 
 
-void lv_draw_wait_for_finish(lv_draw_ctx_t * draw_ctx);
+/**
+ * Wait until all background operations are finished. (E.g. GPU operations)
+ * @param draw_ctx      pointer to a draw context
+ * @param area          pointer to an area which will be refreshed. Can be NULL to finish all operations.
+ * @note                If the CPU/GPU is not busy with `area` it can return immediately
+ *                      as the areas won't conflict.
+ */
+void lv_draw_wait_for_finish(lv_draw_ctx_t * draw_ctx, const lv_area_t * area);
 
 /**********************
  *  GLOBAL VARIABLES
