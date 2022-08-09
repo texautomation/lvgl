@@ -454,10 +454,10 @@ static void argb_and_rgb_aa(const uint8_t * src, lv_coord_t src_w, lv_coord_t sr
             }
 
             if((xs_int == 0 && x_next < 0) || (xs_int == src_w - 1 && x_next > 0))  {
-                abuf[x] = (a * (0xFF - xs_fract)) >> 8;
+                abuf[x] = (a * xs_fract) >> 8;
             }
             else if((ys_int == 0 && y_next < 0) || (ys_int == src_h - 1 && y_next > 0))  {
-                abuf[x] = (a * (0xFF - ys_fract)) >> 8;
+                abuf[x] = (a * ys_fract) >> 8;
             }
             else {
                 abuf[x] = 0x00;
