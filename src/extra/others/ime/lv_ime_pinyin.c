@@ -565,7 +565,7 @@ static void lv_ime_pinyin_constructor(const lv_obj_class_t * class_p, lv_obj_t *
     lv_obj_set_size(obj, LV_PCT(100), LV_PCT(55));
     lv_obj_align(obj, LV_ALIGN_BOTTOM_MID, 0, 0);
 
-#if LV_IME_PINYIN_USE_DEFAULT_DICT
+#if LV_USE_IME_PINYIN
     init_pinyin_dict(obj, lv_ime_pinyin_def_dict);
 #endif
 
